@@ -11,31 +11,78 @@
 	<body>
 		<div class="page">
 			<div class="container">
-				<header class="header">
-					<!--<div class="header__logo">
-						<img src="images/logo.png" alt="logo">
-					</div>-->
+				<header class="header">					
 					<nav class="header__nav nav-header">
 						<div class="nav-header__logo2">
-							<img src="images/logo2.png" alt="logo2">
+							<a href="index.html"><img src="images/logo2.png" alt="logo2"></a>
 						</div>
 
 						<ul class="nav-header__menu">
-							<li class="nav-header__item"><a class="nav-header__link" href="#">Home</a></li>
-							<li class="nav-header__item"><a class="nav-header__link" href="#">Recipe</a></li>
+							<li class="nav-header__item">
+														
+								<input id="submenu1" type="checkbox" class="toggleSubmenu"/>
+								<a class="nav-header__link" href="#">Home</a>
+								<label for="submenu1" class="toggleSubmenu"></label>	
+
+								<ul class="nav-header__submenu">
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Contacts</a></li>
+									<li class="nav-header__item"><a class="nav-header__link" href="#">About</a></li>
+									<li class="nav-header__item subitem">
+										
+										<input id="submenu3" type="checkbox" class="toggleSubmenu"/>
+										<a class="nav-header__link" href="#">Skills</a>
+										<label for="submenu3" class="toggleSubmenu"></label>
+
+										<ul class="nav-header__sub-submenu">
+											<li class="nav-header__item"><a class="nav-header__link" href="#">Programming</a></li>
+											<li class="nav-header__item"><a class="nav-header__link" href="#">Other</a></li>
+										</ul>
+
+									</li>									
+								</ul>
+							</li>
+							<li class="nav-header__item">
+								<input id="submenu2" type="checkbox" class="toggleSubmenu"/>
+								<a class="nav-header__link" href="#">Recipe</a>
+								<label for="submenu2" class="toggleSubmenu"></label>
+
+								<ul class="nav-header__submenu">
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Recomended</a></li>
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Popular</a></li>
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Quick & easy</a></li>
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Healthy</a></li>
+									<li class="nav-header__item"><a class="nav-header__link" href="#">Newest</a></li>
+								</ul>
+							</li>
 							<li class="nav-header__item"><a class="nav-header__link" href="#">Photo Galleries</a></li>
 							<li class="nav-header__item"><a class="nav-header__link" href="#">Videos</a></li>
 							<li class="nav-header__item"><a class="nav-header__link" href="#">All Categories</a></li>
 						</ul>
 
 						<div class="nav-header__search">
-							<i class="fa fa-search" aria-hidden="true"></i>
-							<input type="text" value="Find a recipe"/>
+							<label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>							
+							<input id="search" type="text" placeholder="Find a recipe"/>
 						</div>
+
+						<a href="#" class="open_menu"><span class="burger"></span></a>
 					</nav>
 				</header>
 			</div>
 		</div>	
-	
+		
+
+		<script>
+			var menu = document.getElementsByClassName("nav-header__menu")[0];		
+			var button = document.getElementsByClassName("open_menu")[0];
+			
+			var lock = document.getElementsByTagName("body")[0];		
+			
+			button.addEventListener("click", function(){
+				button.classList.toggle("active");
+				menu.classList.toggle("active");
+				
+				lock.classList.toggle("lock")
+			}, false);
+		</script>
 	</body>
 </html>
