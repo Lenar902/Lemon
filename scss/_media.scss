@@ -1,6 +1,10 @@
 $phone: #eaeaea;
 
 @mixin breakpoint($point) {
+    @if  $point == mdmin768 {
+        @media (min-width: 768px) { @content; }
+    }
+
     @if  $point == lg1170 {
         @media (max-width: 1170px) { @content; }
     }
@@ -8,7 +12,7 @@ $phone: #eaeaea;
         @media (max-width: 992px) { @content; }
     }
     @else if  $point == md {
-        @media (max-width: 768px) { @content; }
+        @media (max-width: 767px) { @content; }
     }
     @else if  $point == sm {
         @media (max-width: 576px) { @content; }

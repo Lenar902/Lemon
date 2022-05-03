@@ -1,6 +1,84 @@
 @import "./reset";
 @import "./media";
 
+/*Burger for mobile menu*/
+@include breakpoint(md) {
+    .open_menu {
+        display: flex;
+        align-items: center;  
+        position: absolute;
+        top: 20px;
+        right: 36px;
+        width: 26px;
+        height: 26px;     
+        z-index: 1;			
+    }
+    .burger,
+    .burger:before,
+    .burger:after {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: #000;
+        -webkit-transition: all 1s ease 0s;
+        -moz-transition: all 1s ease 0s;
+        -o-transition: all 1s ease 0s;
+        transition: all 1s ease 0s;
+    }
+    .burger:before {
+        content: '';
+        top: -8px;
+    }
+    .burger:after {
+        content: '';
+        top: 8px;
+    }
+        
+    .open_menu.active > span {
+        width: 0;			
+    }
+    .open_menu.active > span::before {
+        top: 0;
+        transform: rotate(45deg);
+        width: 30px;	
+    }
+    .open_menu.active > span::after {
+        top: 0;
+        transform: rotate(-45deg);		
+        width: 30px;	
+    }
+        
+    body.lock {
+        overflow: hidden;
+    }
+	
+	.nav-header__menu,.nav-header__menu.active {		
+		position: fixed;
+		width: 100%;
+		height: 100%;       				
+		left: 0;
+		background-color: #fff;
+		-webkit-transition: all 1s ease 0s;
+		-moz-transition: all 1s ease 0s;
+		-o-transition: all 1s ease 0s;
+		transition: all 1s ease 0s;		
+	}
+	.nav-header__menu {
+		top: -1000px;	
+	}
+
+	.nav-header__menu.active {		
+		top: 3rem;
+        padding-left: 2rem;
+		padding-bottom: 3rem;
+		overflow: auto;	
+	}	
+}
+
+
+/*====Header and menu===*/
+
 img {
     width: 100%;
     overflow: hidden;
@@ -11,6 +89,9 @@ img {
     min-height: 100%;
 	overflow: hidden;
     background-color: $phone;
+    @include breakpoint(md) {
+        background-color: white;
+    }
 
     .container {
         width: 78%;
@@ -42,26 +123,71 @@ img {
     @include breakpoint(lg) {
         padding: 1em 5px;
     }
+    @include breakpoint(md) {
+        padding: 1em;
+    }
 
     &__menu {
         display: grid;
         grid-template-columns: minmax(55px, auto) minmax(55px, auto) minmax(55px, auto) minmax(55px, auto) minmax(55px, auto);     
-        grid-column-gap: 1em;
-        justify-items: center; 
+      
+        justify-items: center;
 
-        /* @include breakpoint(lg1170) {
-            grid-template-columns: 1fr; 
+        @include breakpoint(md) {           
+            grid-template-columns: minmax(55px, auto); 
+            grid-template-rows: minmax(2rem, auto) minmax(2rem, auto) minmax(2rem, auto) minmax(2rem, auto) minmax(2rem, auto);                  
+            justify-items: center;
             align-items: center;
-        } */
+        }
+        @include breakpoint(mdmin768) {
+            &>li {
+                background-color: rgb(244,243,249);
+                background: linear-gradient(180deg, rgba(244,243,249,1) 0%, rgba(236,237,245,1) 37%, rgba(131,127,127,1) 100%);
+            } 
+            &>li:first-child {
+                border-left: 1px solid #b2b3b5;            
+            }
+            &>li {
+                border-right: 1px solid #b2b3b5;            
+            }
+        }
+       
     }
-   
+
+    &__item {
+        display: block;
+        position: relative;          
+        background-color: rgb(244,243,249); 
+        @include breakpoint(md) {
+            background-color: white;
+        }       
+                
+        @include breakpoint(mdmin768) {
+            &:hover .nav-header__submenu {
+                display: block;            
+            }           
+        }               
+    }       
+    
+
     &__link {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        padding: 1em 0.5em;
+        white-space: nowrap;
+        text-align: center;
         text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1rem;
-        color: #333;
+        text-transform: uppercase;       
+        font-size: 1rem;        
+        color: black;
+        @include breakpoint(md) {                  
+            font-size: 2rem;
+            padding: 0;           
+        }
         &:hover {
-            color: #777;
+            color: white;  
+            background-color: black;                      
         }
     }
  
@@ -71,14 +197,11 @@ img {
         display: flex;
         justify-content: flex-end;
         position: relative;
-        @include breakpoint(lg) {
-            padding: 0.5 0;
-        }
-        &>i {
+      
+        & i {
             color: gray;
             position: absolute;
-            top: calc(50% - 0.5rem);  
-            left: 1.5rem;        
+            top: calc(50% - 0.5rem);                           
         }
         &>input {
             margin-left: 2rem;
@@ -86,11 +209,81 @@ img {
             width: 100px;         
             text-transform: uppercase;   
             @include breakpoint(lg) {
-                margin-left: 1rem;
+                margin-left: 1.5rem;
                 margin-right: 0rem;
             }        
-        }
-
-       
+        }       
     }
+
+    &__submenu {
+        display: none;
+        position: absolute;
+        left: -1em;
+        top: 3em;
+        min-width: calc(100% + 2em);
+
+        @include breakpoint(mdmin768) {
+            &:hover, .subitem:hover ul {
+                display: block;                  
+            }            
+        }
+        
+        &>li:not(:last-child) {
+            margin-bottom: 1px;
+        }
+        &>li {            
+            min-width: 100%;                      
+        }
+        @include breakpoint(md) {  
+            top: 0;
+           
+            &>li>a {
+                font-size: 1.5rem; 
+                padding: 0; 
+            }     
+        }  
+    }  
+    
+    &__sub-submenu  {
+        display: none;
+        position: absolute;
+        left: 100%; 
+        @include breakpoint(md) {
+            & {
+                left: -1em;
+            }
+            &>li>a {
+                font-size: 1.5rem; 
+                padding: 0; 
+            } 
+        }
+        top: 0;
+        min-width: calc(100% + 2em);            
+    }
+}
+
+
+.toggleSubmenu {
+    display: none;
+}
+
+@include breakpoint(md) {
+    input.toggleSubmenu:checked ~ ul{
+        display: block;
+        position: relative;
+        padding-bottom: 2em;            
+    }
+    label.toggleSubmenu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        display: block;        
+    }      
+    
+    input.toggleSubmenu:checked ~ a {
+        background-color: #fff;
+        color: black;
+    }    
 }
