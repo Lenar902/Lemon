@@ -15,49 +15,28 @@
 					<nav class="header__nav nav-header">
 						<div class="nav-header__logo2">
 							<a href="index.html"><img src="images/logo2.png" alt="logo2"></a>
-						</div>
-
-						<ul class="nav-header__menu">
-							<li class="nav-header__item">
-														
-								<input id="submenu1" type="checkbox" class="toggleSubmenu"/>
-								<a class="nav-header__link" href="#">Home</a>
-								<label for="submenu1" class="toggleSubmenu"></label>	
-
-								<ul class="nav-header__submenu">
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Contacts</a></li>
-									<li class="nav-header__item"><a class="nav-header__link" href="#">About</a></li>
-									<li class="nav-header__item subitem">
-										
-										<input id="submenu3" type="checkbox" class="toggleSubmenu"/>
-										<a class="nav-header__link" href="#">Skills</a>
-										<label for="submenu3" class="toggleSubmenu"></label>
-
-										<ul class="nav-header__sub-submenu">
-											<li class="nav-header__item"><a class="nav-header__link" href="#">Programming</a></li>
-											<li class="nav-header__item"><a class="nav-header__link" href="#">Other</a></li>
-										</ul>
-
-									</li>									
-								</ul>
+						</div>						
+						
+						<ul class="menu__list">
+							<li class="menu__item">Home</li>        
+							<input id="submenu" type="checkbox">
+							<label class="togMenu" for="submenu">Recipe</label>        
+							<li class="menu_dropdown">Recomended</li>
+							<li class="menu_dropdown">Popular</li>
+							<li class="menu_dropdown">Quick & easy</li>
+							
+							
+							<li class="menu__item subitems">Recipe
+							<ul class="menu__list submenu">
+								<li class="submenu__item">Recomended</li>
+								<li class="submenu__item">Popular</li>
+								<li class="submenu__item">Quick & easy</li>
+							</ul>
 							</li>
-							<li class="nav-header__item">
-								<input id="submenu2" type="checkbox" class="toggleSubmenu"/>
-								<a class="nav-header__link" href="#">Recipe</a>
-								<label for="submenu2" class="toggleSubmenu"></label>
-
-								<ul class="nav-header__submenu">
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Recomended</a></li>
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Popular</a></li>
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Quick & easy</a></li>
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Healthy</a></li>
-									<li class="nav-header__item"><a class="nav-header__link" href="#">Newest</a></li>
-								</ul>
-							</li>
-							<li class="nav-header__item"><a class="nav-header__link" href="#">Photo Galleries</a></li>
-							<li class="nav-header__item"><a class="nav-header__link" href="#">Videos</a></li>
-							<li class="nav-header__item"><a class="nav-header__link" href="#">All Categories</a></li>
-						</ul>
+							<li class="menu__item">Photo Galleries</li>
+							<li class="menu__item">Videos</li>     
+							<li class="menu__item">All categories</li>     
+						</ul>				
 
 						<div class="nav-header__search">
 							<label for="search"><i class="fa fa-search" aria-hidden="true"></i></label>							
@@ -72,7 +51,7 @@
 		
 
 		<script>
-			var menu = document.getElementsByClassName("nav-header__menu")[0];		
+			var menu = document.getElementsByClassName("menu__list")[0];		
 			var button = document.getElementsByClassName("open_menu")[0];
 			
 			var lock = document.getElementsByTagName("body")[0];		
