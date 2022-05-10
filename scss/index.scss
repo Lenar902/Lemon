@@ -1,17 +1,17 @@
 @import "./reset";
 @import "./media";
 
+/*===================================HEADER=&=NAVIGATION========4--257====================================*/
+
 /*Button burger for open mobile menu*/
 @include breakpoint(md) {
-    .open_menu {
-        display: flex;
-        align-items: center;  
+    .open_menu {        
         position: absolute;
-        top: 35px;
+        top: 45px;
         right: 36px;
         width: 26px;
         height: 26px;     
-        z-index: 1;			
+        z-index: 50;			
     }
     .burger,
     .burger:before,
@@ -58,6 +58,7 @@
 		width: 100%;
 		height: 100%;       				
 		left: 0;
+    z-index: 40;
 		background-color: #fff;
 		-webkit-transition: all 1s ease 0s;
 		-moz-transition: all 1s ease 0s;
@@ -69,14 +70,24 @@
 	}
 
 	.menu__list.active {		
-		top: 50px;  
-    padding: 0 0 70px 0;		
+		top: 80px;  
+    padding: 0 0 90px 0;		
 		overflow: auto;	
 	}	
 }
 
 
 /*====Header and menu===*/
+
+.container_inner {
+  padding: 0 92px;
+  @include breakpoint(lg1170) {
+    padding: 0 30px;
+  }
+  @include breakpoint(lg) {
+    padding: 0 10px;
+  }  
+}
 
 img {
     width: 100%;
@@ -92,30 +103,22 @@ img {
         background-color: white;        
     }
 
-    .container {
-        width: 78%;
-        max-width: 1120px;
-        margin: 0 auto;
-        background-color: white;
-        @include breakpoint(lg1170) {
-            width: 95%;
-        }
-        @include breakpoint(lg) {
-            width: 100%;
-        }
-        @include breakpoint(md) {
-          width: 90%;
-        }
+    .container {        
+      max-width: 1120px;
+      margin: 0 auto;     
     }
 }//end-page
 
+.header {
+  background-color: white;
+}
 
 .nav-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    height: 120px;
     @include breakpoint(md) {      
-      justify-content: space-between;
       height: 100px;     
     }
 
@@ -144,7 +147,7 @@ img {
         border: 0;
         padding: 5px 2px; 
         position: relative;
-        right: 4rem;
+        right: 5rem;
       }
     }
 }
@@ -153,12 +156,12 @@ img {
 .menu__list {
     list-style: none;
     text-transform: uppercase;  
-    padding: 0;
+    padding: 50px 0 0 0;
     text-align: center;
-    padding-top: 50px; 
+    display: block;
     font-size: 1.5rem; 
     @include breakpoint(lg) {
-      margin: 1rem 10px;
+      margin: 1rem 0;
     }  
   }
   .menu__item, .menu_dropdown, .togMenu {
@@ -199,7 +202,7 @@ img {
     }
     .submenu, #submenu:checked ~ .menu_dropdown, .togMenu { 
       display: none; 
-      font-size: 1rem;
+      font-size: 1rem;      
     }
     .subitems {
       display: block;
@@ -208,6 +211,7 @@ img {
     .subitems:hover .submenu {
       display: block;
       position: absolute;
+      z-index: 5;
       top: 3rem;
       left: 0;
       @include breakpoint(lg) {
@@ -246,3 +250,76 @@ img {
       background-color: #000;
     }
   }
+
+
+  /*===================================END=HEADER=&=NAVIGATION========4--257====================================*/
+
+
+  /*===================================MAIN============================================*/
+.main {
+  width: 100%;
+  height: 440px;
+  background-color: #ffffff;
+  position: relative;
+  z-index: 0;
+  margin: 84px 0;
+  @include breakpoint(md) { 
+    margin: 20px 0;
+  }
+
+  &__phone {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    img {
+      display: block;
+      object-fit: cover;  
+      width: 100%;
+      height: 445px;   
+    }
+  }
+  &__content {
+    position: relative;
+    z-index: 2;
+    max-width: 280px;
+    width: 100%;
+    padding: 50px 0 55px 0;
+
+    @include breakpoint(lg) {
+      display: none;
+    }
+  }
+  &__image { 
+    width: 75%;
+    height: auto;   
+  }
+  &__title {
+    font-size: 1.5rem;
+    color: #911026; 
+    margin: 35px 0 0 0;   
+  }
+  &__text {
+    font-size: 1rem;
+    color: #000;
+    margin: 26px 0;
+  }
+  &__btn {
+    border: 1px solid #c2c2c2;    
+    display: inline-block;
+    &>a {
+      display: inline-block;
+      text-transform: uppercase;
+      color: #9d9d9d;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      white-space: nowrap;      
+    }
+    &>a:hover {
+      background-color: #9d9d9d;
+      color: #000;
+    }
+  }
+}
