@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import "./reset";
 @import "./media";
 
-/*===================================HEADER=&=NAVIGATION========4--257====================================*/
+/*===================================HEADER=&=NAVIGATION========5--258===================================*/
 
 /*Button burger for open mobile menu*/
 @include breakpoint(md) {
@@ -98,6 +100,7 @@ img {
     width: 100%;
     min-height: 100%;
 	  overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
     background-color: $phone;
     @include breakpoint(md) {
         background-color: white;        
@@ -173,7 +176,7 @@ img {
     background-color: white;
     @include breakpoint(lg) {
       margin: 0.5rem 0;
-      padding: 0.5rem;
+      padding: 1rem 0.5rem;
     }
   } 
   
@@ -215,8 +218,7 @@ img {
       top: 3rem;
       left: 0;
       @include breakpoint(lg) {
-        top: 1rem;
-        left: -10px;
+        top: 2rem;       
       }
     } 
     .menu__item {
@@ -227,7 +229,7 @@ img {
       padding: 1rem; 
       @include breakpoint(lg) {
         margin: 0;
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
       }       
     }
     .submenu__item {
@@ -241,7 +243,7 @@ img {
       }
       @include breakpoint(lg) {
         margin: 1px 0;
-        padding: 0.5rem;
+        padding: 1rem 0.5rem;
       }
     }
    
@@ -252,7 +254,7 @@ img {
   }
 
 
-  /*===================================END=HEADER=&=NAVIGATION========4--257====================================*/
+  /*===================================END=HEADER=&=NAVIGATION========5--256====================================*/
 
 
   /*===================================MAIN============================================*/
@@ -269,6 +271,9 @@ img {
 
   &__phone {
     position: absolute;
+    @include breakpoint(lg) {
+      position: relative;
+    }
     top: 0;
     left: 0;
     right: 0;
@@ -284,10 +289,16 @@ img {
   &__content {
     position: relative;
     z-index: 2;
-    max-width: 280px;
+    max-width: 360px;
     width: 100%;
-    padding: 50px 0 55px 0;
-
+    padding: 50px 0 55px 0; 
+    
+    @include breakpoint(lg) {
+      position: static;
+      max-width: none;
+    }
+  }
+  &__image, &__title, &__text {
     @include breakpoint(lg) {
       display: none;
     }
@@ -297,29 +308,106 @@ img {
     height: auto;   
   }
   &__title {
-    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: 24px;
     color: #911026; 
     margin: 35px 0 0 0;   
   }
   &__text {
-    font-size: 1rem;
+    max-width: 320px;
+    font-size: 16px;
     color: #000;
     margin: 26px 0;
   }
   &__btn {
     border: 1px solid #c2c2c2;    
     display: inline-block;
+    @include breakpoint(lg) {
+      position: absolute;
+      display: block;  
+      left: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -60px;  
+      border: 0;       
+    }
+    @include breakpoint(md) {
+      bottom: -50px; 
+    }
     &>a {
       display: inline-block;
       text-transform: uppercase;
-      color: #9d9d9d;
-      padding: 8px 12px;
-      font-size: 0.75rem;
-      white-space: nowrap;      
+      color: #3b3b3b;
+      padding: 5px 12px 2px;
+      font-size: 12px;
+      line-height: 1.5;
+      white-space: nowrap; 
+      
+      @include breakpoint(lg) {
+        display: block;
+        font-size: 20px;
+        background-color: #fff;
+      }
     }
     &>a:hover {
       background-color: #9d9d9d;
       color: #000;
+      @include breakpoint(lg) {
+        background-color: #ccc;
+      }
     }
   }
+}
+
+
+
+/*============================Recipees=========================*/
+
+.recipees {
+  background-color: white;
+}
+
+.recipees__row {
+  display: flex;
+  padding: 50px 30px;
+  @include breakpoint(md) { 
+    flex-direction: column;
+    padding: 30px 50px;    
+  }
+
+  .recipees__column {
+    flex: 0 1 33.333%;
+    margin: 0 20px; 
+    @include breakpoint(md) { 
+      margin: 15px 0;
+    }
+  }
+}
+
+.recipees-item_img img {
+  display: block;
+  object-fit: cover;  
+  width: 100%;
+  height: 208px;   
+}
+
+.recipees-item__text {
+  font-size: 18px;
+  margin: 15px 0 10px 0;
+}
+.recipees-item__icons span {
+  margin: 0 0 0 5px;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+
+  &:hover {
+    cursor: pointer;
+    color: #555;   
+  }
+}
+.vline {
+  border-left: 1px solid #6f6f6f;
+  padding: 0 5px;
 }

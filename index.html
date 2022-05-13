@@ -70,20 +70,62 @@
 						</div>
 					</div>
 				</main>
+
+				<section class="recipees">
+					<div class="recipees__row">
+						<div class="recipees__column recipees-item">
+							<div class="recipees-item_img">
+								<img src="images/rec/recipees1.png" alt="recipees1">
+							</div>
+							<p class="recipees-item__text">
+								Raspberry & Cream Frozen Yogurt Pie
+							</p>
+							<div class="recipees-item__icons">
+								<span><i class="fa fa-clock-o" aria-hidden="true"></i></span><span>35mins</span>
+								<span class="vline"><i class="fa fa-comment-o" aria-hidden="true"></i></span><span>7</span>
+								<span><i class="fa fa-eye" aria-hidden="true"></i></span><span>14</span>							
+							</div>
+						</div>
+						<div class="recipees__column recipees-item">
+							<div class="recipees-item_img">
+								<img src="images/rec/recipees2.png" alt="recipees2">
+							</div>
+							<p class="recipees-item__text">
+								Giant Ice Cream Sandwich
+							</p>
+							<div class="recipees-item__icons">
+								<span><i class="fa fa-clock-o" aria-hidden="true"></i></span><span>20mins</span>
+								<span class="vline"><i class="fa fa-comment-o" aria-hidden="true"></i></span><span>4</span>
+								<span><i class="fa fa-eye" aria-hidden="true"></i></span><span>356</span>								
+							</div>
+						</div>
+						<div class="recipees__column recipees-item">
+							<div class="recipees-item_img">
+								<img src="images/rec/recipees3.png" alt="recipees3">
+							</div>
+							<p class="recipees-item__text">
+								Dark Chocolate Crunch Ice Cream Sandwich Cake
+							</p>
+							<div class="recipees-item__icons">
+								<span><i class="fa fa-clock-o" aria-hidden="true"></i></span><span>15mins</span>
+								<span class="vline"><i class="fa fa-comment-o" aria-hidden="true"></i></span><span>4</span>
+								<span><i class="fa fa-eye" aria-hidden="true"></i></span><span>167</span>								
+							</div>
+						</div>
+					</div>
+				</section>
 			</div>
 		</div>	
 		
 
 		<script>
 			var menu = document.getElementsByClassName("menu__list")[0];		
-			var button = document.getElementsByClassName("open_menu")[0];
-			
+			var button = document.getElementsByClassName("open_menu")[0];			
 			var lock = document.getElementsByTagName("body")[0];		
 			
 			button.addEventListener("click", function(){
 				button.classList.toggle("active");
-				menu.classList.toggle("active");
-				
+				menu.classList.toggle("active");				
 				lock.classList.toggle("lock")
 			}, false);
 		</script>
