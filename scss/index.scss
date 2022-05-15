@@ -259,32 +259,35 @@ img {
 
   /*===================================MAIN============================================*/
 .main {
-  width: 100%;
-  height: 440px;
-  background-color: #ffffff;
+  max-width: 100%;
+  height: auto;
+  background-color: transparent;
   position: relative;
   z-index: 0;
   margin: 84px 0;
   @include breakpoint(md) { 
     margin: 20px 0;
-  }
+  } 
 
-  &__phone {
+  &__phone {    
+    overflow: hidden;
+
     position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
     @include breakpoint(lg) {
       position: relative;
     }
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 1;
-    img {
-      display: block;
-      object-fit: cover;  
-      width: 100%;
-      height: 445px;   
+     
+    .slider-line {
+      display: flex;    
+      transition: all ease 1s;    
     }
+    
+    
   }
   &__content {
     position: relative;
@@ -324,17 +327,17 @@ img {
     border: 1px solid #c2c2c2;    
     display: inline-block;
     @include breakpoint(lg) {
-      position: absolute;
-      display: block;  
-      left: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -60px;  
-      border: 0;       
+      position: relative;
+      display: inline-block;        
+      left: 50%;   
+      bottom: 30px;   
+      transform: translateX(-50%);    
+      border: 0; 
+      z-index: 9;      
     }
-    @include breakpoint(md) {
-      bottom: -50px; 
-    }
+   
+    
+  
     &>a {
       display: inline-block;
       text-transform: uppercase;
@@ -366,6 +369,10 @@ img {
 
 .recipees {
   background-color: white;
+  @include breakpoint(lg) { 
+    position: relative;  
+    top: -100px;
+  }
 }
 
 .recipees__row {
@@ -373,15 +380,16 @@ img {
   padding: 50px 30px;
   @include breakpoint(md) { 
     flex-direction: column;
-    padding: 30px 50px;    
+    padding: 30px;     
   }
+ 
 
   .recipees__column {
     flex: 0 1 33.333%;
     margin: 0 20px; 
     @include breakpoint(md) { 
-      margin: 15px 0;
-    }
+      margin: 20px 0;
+    }   
   }
 }
 

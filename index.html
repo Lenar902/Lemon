@@ -46,16 +46,30 @@
 						<a href="#" class="open_menu"><span class="burger"></span></a>
 					</nav>
 				</header>
+		
+
 
 				<main class="main container_inner">
-					<div class="main__phone">					
-						<picture>
-						 <source media="(max-width: 767px)" srcset="images/photo_mobile.png">
-						 <source media="(min-width: 768px)" srcset="images/photo.png">
-						 <img src="images/photo.png" alt="phone">
-						</picture>
-					</div>
-
+					<div class="main__phone">
+						<div class="slider-line">
+							<picture>
+								<source media="(max-width: 991px)" srcset="images/photo_mobile.png">
+								<source media="(min-width: 992px)" srcset="images/photo.png">
+								<img src="images/photo.png" alt="phone">
+							</picture>
+							<picture>	
+								<source media="(max-width: 991px)" srcset="images/99mobile.png">					
+								<source media="(min-width: 992px)" srcset="images/99.png">
+								<img src="images/99.png" alt="phone2">
+							</picture>
+							<picture>
+								<source media="(max-width: 991px)" srcset="images/161454mobile.png">							
+								<source media="(min-width: 992px)" srcset="images/161454.png">
+								<img src="images/161454.png" alt="phone3">
+							</picture>
+						</div>
+					</div>				
+					
 					<div class="main__content">						
 						<div class="main__image">
 							<img src="images/big-logo.png" alt="big-logo">
@@ -70,7 +84,8 @@
 						</div>
 					</div>
 				</main>
-
+			
+		
 				<section class="recipees">
 					<div class="recipees__row">
 						<div class="recipees__column recipees-item">
@@ -113,21 +128,12 @@
 							</div>
 						</div>
 					</div>
-				</section>
+				</section>			
+				
 			</div>
 		</div>	
 		
 
-		<script>
-			var menu = document.getElementsByClassName("menu__list")[0];		
-			var button = document.getElementsByClassName("open_menu")[0];			
-			var lock = document.getElementsByTagName("body")[0];		
-			
-			button.addEventListener("click", function(){
-				button.classList.toggle("active");
-				menu.classList.toggle("active");				
-				lock.classList.toggle("lock")
-			}, false);
-		</script>
+		<script src="script.js" defer></script>
 	</body>
 </html>
