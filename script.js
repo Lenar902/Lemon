@@ -10,6 +10,14 @@ window.onload = function() {
     var widt;
     var timer;
 
+    let preloader = document.querySelector("#preloader");
+    let timerPr = setTimeout(function() {       
+        preloader.style.display = 'none';
+        clearTimeout(timerPr);       
+      
+    }, 1000);
+
+
     function init() {
         widt = document.querySelector('.main__phone').offsetWidth;
         console.log(widt);
